@@ -42,22 +42,27 @@ const Onboarding = () => {
     <>
       <Header title="Complete Your Profile" showBackButton />
 
-      <div className="min-h-screen pt-16 pb-6 px-2 bg-gradient-to-b from-housie-darkPurple to-gray-900 flex flex-col">
+      <div className="min-h-screen pt-16 pb-6 px-4 bg-gradient-to-b from-housie-purple/80 to-housie-darkPurple flex flex-col">
         <div className="flex-1 flex flex-col justify-center">
-          <div className="w-full max-w-[95vw] sm:max-w-md mx-auto space-y-8 animate-fade-in">
+          <div className="w-full max-w-[95vw] sm:max-w-md mx-auto space-y-10 animate-fade-in">
             <div className="text-center">
-              <div className="mx-auto bg-housie-purple/20 w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mb-4">
-                <User size={40} className="text-housie-purple" />
+              <div className="mx-auto bg-housie-gold/30 w-24 h-24 sm:w-28 sm:h-28 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-housie-gold/50">
+                <User size={48} className="text-housie-gold" />
               </div>
-              <h1 className="text-xl sm:text-2xl font-bold">Tell us your name</h1>
-              <p className="mt-2 text-gray-400 text-sm sm:text-base">
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-housie-gold tracking-wide">
+                Tell us your name
+              </h1>
+              <p className="mt-3 text-housie-lightGold text-base sm:text-lg font-semibold">
                 We'll use this to personalize your experience
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-              <div className="space-y-1.5">
-                <label htmlFor="name" className="block text-sm text-gray-400 pl-0.5">
+            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+              <div className="space-y-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm sm:text-base text-housie-lightGold font-semibold pl-0.5"
+                >
                   Your Name
                 </label>
                 <Input
@@ -66,7 +71,7 @@ const Onboarding = () => {
                   placeholder="Enter your full name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="text-base sm:text-lg py-3 px-4 rounded-xl shadow-sm bg-white dark:bg-background"
+                  className="text-lg sm:text-xl py-4 px-5 rounded-2xl shadow-md bg-white dark:bg-background font-semibold text-housie-darkPurple placeholder:text-gray-400"
                   autoComplete="name"
                   required
                   maxLength={32}
@@ -75,9 +80,9 @@ const Onboarding = () => {
                 />
               </div>
 
-              <Button 
-                type="submit" 
-                className="w-full py-3 text-base sm:text-lg button-gold rounded-xl"
+              <Button
+                type="submit"
+                className="w-full py-4 sm:py-5 text-lg sm:text-xl font-extrabold button-gold rounded-2xl shadow-lg shadow-housie-gold/40"
                 disabled={loading || !name.trim()}
               >
                 {loading ? "Saving..." : "Continue"}
@@ -91,3 +96,4 @@ const Onboarding = () => {
 };
 
 export default Onboarding;
+
